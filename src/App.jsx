@@ -11,10 +11,8 @@ function App() {
     <>
       <h1>React-SocialSentimentAnalyzer</h1>
       {isAuthenticated ? <>
-        <div className="card">
-          <Profile />
-          <LogoutButton />
-        </div>
+        <Profile />
+        <LogoutButton />
       </> : <>
         <LoginButton />
       </>}
