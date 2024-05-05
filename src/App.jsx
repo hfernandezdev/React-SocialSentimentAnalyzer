@@ -2,6 +2,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 import LoginButton from './components/Login'
 import Profile from './components/Profile'
 import LogoutButton from './components/Logout'
+import LandingPage from './pages/LandingPage'
+import HomePage from './pages/HomePage'
 import './App.css'
 
 function App() {
@@ -9,12 +11,10 @@ function App() {
 
   return (
     <>
-      <h1>React-SocialSentimentAnalyzer</h1>
       {isAuthenticated ? <>
-        <Profile />
-        <LogoutButton />
+        <HomePage />
       </> : <>
-        <LoginButton />
+        <LandingPage />
       </>}
     </>
   )
