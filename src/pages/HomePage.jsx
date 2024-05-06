@@ -15,6 +15,9 @@ const HomePage = () => {
           <Link to="/cargar-archivo-csv" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 ease-in-out mr-2">
             Cargar archivo CSV
           </Link>
+          <Link to="/analisis-texto" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition duration-300 ease-in-out mr-2">
+            Análisis de texto
+          </Link>
           <LogoutButton />
         </div>
       </div>

@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
 import LoadCSVFilePage from './pages/LoadCSVFilePage'
 import ProcessDataPage from './pages/ProcessDataPage'
+import TextAnalysisPage from './pages/TextAnalysisPage'
 
 import './App.css'
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="perfil" element={ isAuthenticated ? <ProfilePage /> : <Navigate to="/" /> } />
         <Route path="/cargar-archivo-csv" element={ isAuthenticated ? <LoadCSVFilePage /> : <Navigate to="/" />} />
         <Route path="/procesar-datos" element={ isAuthenticated ? <ProcessDataPage /> : <Navigate to="/" /> } />
+        <Route path="/analisis-texto" element={ isAuthenticated ? <TextAnalysisPage /> : <Navigate to="/" /> } />
       </Routes>
     </>
   )
