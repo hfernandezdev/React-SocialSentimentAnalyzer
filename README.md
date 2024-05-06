@@ -14,6 +14,7 @@
 
 ## Tecnologías utilizadas:
 - [Node.js](https://nodejs.org/) - Entorno de ejecución de JavaScript.
+- [Vite](https://vitejs.dev/) - Herramienta de construcción de aplicaciones web rápida y optimizada.
 - [React](https://reactjs.org/) - Biblioteca JavaScript para construir interfaces de usuario.
 - [Tailwind CSS](https://tailwindcss.com/) - Framework de diseño CSS utilitario.
 - [HuggingFace API](https://huggingface.co/) - Plataforma de modelos de inteligencia artificial.
