@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { query } from "../services/huggingFaceService";
 import { Link } from 'react-router-dom';
+import BarChartComponent from "../components/BarChartComponent";
+import PieChartComponent from "../components/PieChartComponent";
 
-//text analysis
 function TextAnalysisPage() {
     const [text, setText] = useState("");
     const [emotionResult, setEmotionResult] = useState([]);
@@ -50,30 +51,42 @@ function TextAnalysisPage() {
           />
 
           {error && <p className="text-red-500">{error}</p>}
-          {emotionResult.length > 0 && sentimentResult.length > 0 && (
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h3 className="text-xl font-semibold mb-2">Resultados de Emoción:</h3>
-                <ul>
-                  {emotionResult.map((result, index) => (
-                    <li key={index} className="text-lg text-gray-800">
-                      {etiquetasTraducidas[result.label]}: {result.score.toFixed(2)}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h3 className="text-xl font-semibold mb-2">Resultados de Sentimiento:</h3>
-                <ul>
-                  {sentimentResult.map((result, index) => (
-                    <li key={index} className="text-lg text-gray-800">
-                      {etiquetasTraducidas[result.label]}: {result.score.toFixed(2)}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
+
+          <div className="overflow-y-auto max-h-96">
+            {emotionResult.length > 0 && sentimentResult.length > 0 && (
+              <>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white rounded-lg shadow-lg p-6">
+                    <h3 className="text-xl font-semibold mb-2">Resultados de Emoción:</h3>
+                    <ul>
+                      {emotionResult.map((result, index) => (
+                        <li key={index} className="text-lg text-gray-800">
+                          {etiquetasTraducidas[result.label]}: {result.score.toFixed(2) * 100 + "%"}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="bg-white rounded-lg shadow-lg p-6">
+                    <h3 className="text-xl font-semibold mb-2">Resultados de Sentimiento:</h3>
+                    <ul>
+                      {sentimentResult.map((result, index) => (
+                        <li key={index} className="text-lg text-gray-800">
+                          {etiquetasTraducidas[result.label]}: {result.score.toFixed(2) * 100 + "%"}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg shadow-lg p-6">
+                  <BarChartComponent data={emotionResult} />
+                </div>
+                <div className="bg-white rounded-lg shadow-lg p-6">
+                  <PieChartComponent data={sentimentResult} />
+                </div>
+              </>
+            )}
+          </div>
+
           <div className="flex justify-center mt-6">
             <Link
               to="/inicio"
